@@ -32,7 +32,7 @@ function auth() {
         emailError.value = 'Введите корректный email'
         return
     } else {
-        emailError.value = null;
+        emailError.value = '';
     }
 
     if (email.value && password.value) {
