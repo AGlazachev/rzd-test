@@ -19,7 +19,7 @@ import {ref} from 'vue';
 import { useRouter } from 'vue-router'
 
 const email = ref(null)
-const emailError = ref(null)
+const emailError = ref('')
 const password = ref(null)
 const router = useRouter()
 const validateEmail = (email) => {
