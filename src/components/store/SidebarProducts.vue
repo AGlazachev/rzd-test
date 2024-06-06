@@ -8,7 +8,10 @@
         </select>
         <div class="sidebar__row">
             <div class="input">
-                <input class="input__text" v-model="minPrice" type="number" placeholder="Минимальная цена" min="0" :max="props.maxPrice">
+                <input class="input__text" type="number" placeholder="Минимальная цена"
+                       v-model="minPrice"
+                       :min="props.minPrice"
+                       :max="props.maxPrice">
             </div>
             <div class="input">
                 <input class="input__text" v-model="maxPrice" type="number" placeholder="Максимальная цена" min="0" :max="props.maxPrice">
@@ -29,12 +32,13 @@ const props = defineProps({
         type: Array,
         required: true
     },
-    maxPrice: Number
+    maxPrice: Number,
+    minPrice: Number,
 });
 const emit = defineEmits(['filterProducts']);
 
 const selectedCategory = ref('all');
-const minPrice = ref(0);
+    const minPrice = ref(props.minPrice);
 const maxPrice = ref(props.maxPrice);
 
 onMounted(() => {
@@ -61,6 +65,7 @@ const resetFilters = () => {
 
 watch(() => props.maxPrice, () => {
     maxPrice.value = props.maxPrice;
+    minPrice.value = props.minPrice;
 });
 </script>
 

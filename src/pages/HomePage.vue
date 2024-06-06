@@ -4,6 +4,7 @@
             <SidebarProducts
                 :categories="categories"
                 :maxPrice="maxPrice"
+                :minPrice="minPrice"
                 @filterProducts="updateFilteredProducts"
             />
             <ProductList :products="products"/>
@@ -21,12 +22,14 @@ const productStore = useProductStore();
 const products = ref([]);
 const categories = ref([]);
 const maxPrice = ref(0);
+const minPrice = ref(0);
 
 onMounted(
     async () => {
         await productStore.fetchProducts();
         await productStore.fetchCategories();
-            maxPrice.value = Math.max(...productStore.products.map(product => product.price));
+        maxPrice.value = Math.max(...productStore.products.map(product => product.price));
+        minPrice.value = Math.min(...productStore.products.map(product => product.price));
     });
 
 watchEffect(() => {

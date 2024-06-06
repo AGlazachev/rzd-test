@@ -7,7 +7,7 @@
              loading="lazy"
         >
         <p class="product-card__name">{{ props.product.title }}</p>
-        <span class="product-card__price mb-16">{{ props.product.price }} $</span>
+        <span class="product-card__price mb-16">{{ props.product.price }} руб.</span>
         <button @click.prevent="addToCart(props.product)" class="btn product-card__btn">В&nbsp;корзину</button>
     </article>
 </template>

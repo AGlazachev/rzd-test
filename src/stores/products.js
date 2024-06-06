@@ -25,6 +25,7 @@ export const useProductStore = defineStore('products', {
                 console.error('Ошибка при получении категорий:', error);
             }
         },
+
         filterProducts(selectedCategory, minPrice, maxPrice) {
             this.filteredProducts = this.products.filter(product => {
                 const matchesCategory = selectedCategory === 'all' || product.category === selectedCategory;

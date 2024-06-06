@@ -8,8 +8,8 @@
             <span class="quantity">{{ props.item.quantity }}</span>
             <button @click="increaseQuantity" class="quantity-btn">+</button>
         </div>
-        <span>{{ props.item.price }}$</span>
-        <span>{{ (props.item.price * props.item.quantity).toFixed(2) }}$</span>
+        <span>{{ props.item.price }} руб.</span>
+        <span>{{ (props.item.price * props.item.quantity).toFixed(2) }} руб.</span>
     </div>
 </template>
 
